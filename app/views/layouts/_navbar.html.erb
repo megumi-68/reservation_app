@@ -1,34 +1,29 @@
 <header class="mb-4">
   <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
-    <a class="navbar-brand" href="/">PoteShare</a>
+    <a class="navbar-brand" href="/"><%= image_tag 'logo.png', alt: 'サイトロゴ' %></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent">
       <span class="navbar-toggler-icon"></span>
     </button>
 
     <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
       <ul class="navbar-nav">
-         <% if user_signed_in? %> 
-        <!-- current_user は現在ログインしているUserオブジェクトを返すdeviseのHelperメソッド -->
-        <!-- *_path はUserモデルを作成したときに、
-        deviseにより自動で作成されてますので、rake routesで確認できます -->
-        Logged in as <strong><%= current_user.email %></strong>.
-
-        <%= link_to 'プロフィール変更', edit_user_registration_path %> |
-        <li class="nav-item">
-          <%= link_to 'ルーム登録', new_room_path %>
-        </li>
+        <% if user_signed_in? %> 
+        <li class="nav-item dropdown">
+        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Logged in as <%= current_user.email %></a>
+        <ul class="dropdown-menu dropdown-menu-right">
+        <li class="dropdown-item"><%= link_to 'プロフィール変更', edit_user_registration_path %></li>
+        <li class="dropdown-divider"></li>      
+        <li class="dropdown-item"><%= link_to 'ルーム登録', new_room_path %></li>
         <!--<li class="nav-item">
            <%# link_to '予約済みルーム一覧', posts_path %>
         </li>-->
-        <li class="nav-item">
-          <%= link_to '登録済みルーム一覧', rooms_path %>
-        </li>
+        <li class="dropdown-divider"></li> 
+        <li class="dropdown-item"><%= link_to '登録済みルーム一覧', rooms_path %></li>
         <!--<li class="nav-item">
           <%# link_to '設定', account %>
         </li>-->
-        <li class="nav-item">
-          <%= link_to "ログアウト", destroy_user_session_path %>
-        </li>
+        <li class="dropdown-divider"></li> 
+        <li class="dropdown-item"><%= link_to "ログアウト", destroy_user_session_path %></li>
         <% else %>
         <li class="nav-item"><%= link_to '登録する', new_user_registration_path, class: 'nav-link' %></li>
         <li class="nav-item"><%= link_to 'ログイン', user_session_path, class: 'nav-link' %></li>
