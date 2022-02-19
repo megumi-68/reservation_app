@@ -1,3 +1,60 @@
 // Place all the styles related to the toppages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+body{
+    font-family: verdana, arial, helvetica, sans-serif;
+}
+
+.top-search-box{
+    width:40%;
+    background-color: white;
+    border-radius: 5px;
+    border: 1px #ddd solid;
+    padding: 24px;
+    text-align:left;
+    position:absolute;
+    top:30%;
+    left:10%;
+}
+
+.area-box-title{
+    display:block;
+    font-size:13px;
+}
+
+.form-area-box{
+    display:flex;
+    width:100%;
+}
+
+.search-button{
+    width:100%;
+    text-align:center;
+}
+
+.top-search-title{
+    font-size: 28px;
+    line-height: 33px;
+    letter-spacing: 1px; 
+}
+
+.recommend-area-title{
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.place-picture{
+    width: 100%;
+    height: 360px;
+    object-fit: cover;
+    border-radius: 5px;
+    margin-bottom: 25px;
+}
+
+.recommend-area{
+    position:absolute;
+    text-align:center;
+    font-weight:bold;
+    font-size:20px;
+    color:black;
+}
