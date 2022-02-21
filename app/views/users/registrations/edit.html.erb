@@ -1,51 +1,43 @@
-
-<form class="edit_user" id="edit_user_1236" enctype="multipart/form-data" action="/users/profile" accept-charset="UTF-8" method="post">
-
-<input type="hidden" name="_method" value="patch">
-<input type="hidden" name="authenticity_token" value="eMa7luxFqXNH44PFMLOjytqKuKeowihKd0jR5Z4hCo5dJxH/gQbWr5l3SFR7h1qv0frAnn/RJkjBSdOt1lZMgw==">
-                    
-<div class="col-lg-10 user view">
- <div class="user-view-box">
- <div class="update-content">
-  <div class="row">
-    <h5>プロフィール</h5>
+<div class="row">
+  <div class="col-4">
   </div>
- </div>
 
-<div class="update-content">
-  <div class="row">
-    <div class="col-md-6 offset-md-3">
-      <div class="icon-box">
-        <%= image_tag 'default_icon.jpg', alt: 'アイコン画像', class: "icon-image host-icon" %>
-      </div>
-   </div>
-  </div>
-</div>
-
-<div class="update-content">
-  <div class="row">
-    <label class="col-md-3 required-a" for="image">アイコン画像</label>
-      <input class="mb-4 col-md-9" placeholder="アイコン画像をアップロード" type="file" name="user[image]" id="user_image">
-  </div>
-</div>
-
-<div class="update-content">
-  <div class="row">
-    <label class="col-md-3 required-a" for="name">名前</label>
-    <input class="form-control mb-4 col-md-9" placeholder="名前を入力" type="text"  name="user[name]" id="user_name">
-  </div>
-</div>
-
-<div class="update-content">
-  <div class="row">
-    <label class="col-md-3 required-a" for="introduction">自己紹介</label>
-    <textarea rows="5" class="form-control mb-4 col-md-9" placeholder="自己紹介を入力" name="user[introduction]" id="user_introduction"></textarea>
-  </div>
-</div>
-
-<div class="update-content">
-  <div class="row">
-    <input type="submit" name="commit" value="更新" class="col-md-2 btn btn-primary mx-3" data-disable-with="更新">
-  </div>
-</div>
-</form>
+<div class="editview">
+ <h3>アカウント編集</h3>
+<table>
+ <tbody>
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+  <%= render "users/shared/error_messages", resource: resource %>
+  <tr>
+   <td><%= f.label :メールアドレス %></td>
+  </tr>
+  <tr>
+   <td><%= f.email_field :email, autofocus: true, autocomplete: "email", maxlength: "50", size: "50" %></td>
+  </tr>
+  <tr>
+   <td><%= f.label :変更後パスワード（変更する場合のみ入力） %></td>
+  </tr>
+  <tr>
+   <td><%= f.password_field :password, autofocus: true, autocomplete: "new-password", maxlength: "50", size: "50" %></td>
+  </tr> 
+  <tr>
+   <td><%= f.label :パスワード確認用（変更する場合のみ入力）%></td>
+  </tr>
+  <tr>
+   <td><%= f.password_field :password_confirmation, autocomplete: "new-password", maxlength: "50", size: "50" %></td>
+  </tr>
+  <tr>
+   <td><%= f.label :現在のパスワード）%></td>
+  </tr>
+  <tr>
+   <td><%= f.password_field :current_password, autocomplete: "current-password", maxlength: "50", size: "50" %></td>
+  </tr>
+  <tr>
+   <td><%= f.submit "更新", class: 'btn btn-primary' %></td>
+  <% end %>
+  </tr>
+  <tr>
+   <td><%= link_to '戻る', account_path, class: "btn btn-outline-primary" %></td>
+  </tr>
+  </tbody>
+</table>

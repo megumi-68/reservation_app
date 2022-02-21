@@ -1,0 +1,29 @@
+<div class="container">
+<div class="row">
+  <div class="col-3">
+   <div class="sharedarea">
+      <%= render "users/shared/sidemenu" %>
+   </div>
+  </div>
+
+<div class="account">
+ <div class="aaaa">
+  <h3>アカウント</h3>
+   <table class="acounttable">
+    <tbody>
+     <tr>
+      <th>メールアドレス</th>
+      <td><%= @user.email %></td>
+     </tr>
+     <tr>
+      <th>パスワード</th>
+      <td>*********</td>
+     </tr>
+    </tbody>
+   </table>
+  <%= link_to '編集する', edit_user_registration_path, class: 'btn btn-primary', data: {"turbolinks"=>false} %>
+ </div>
+ </div>
+ 
+</div>
+</div>
