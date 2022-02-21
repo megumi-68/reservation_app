@@ -5,4 +5,5 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :rooms
+  validates :introduce, length: { maximum: 200 } 
 end
