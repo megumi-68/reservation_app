@@ -2,7 +2,11 @@
 
  <table class="post_room">
   <tr>
-   <th>ルーム画像</th>
+   <%
+=begin%>
+ <th>ルーム画像</th> 
+<% 表示確認のため一時的にコメントアウト
+=end%>
    <th>ルーム名</th>
    <th>ルーム紹介</th>
    <th>料金</th>
@@ -12,9 +16,13 @@
   <%= paginate @rooms %>
   <% @rooms.each do |room| %>
   <tr>
-   <td><%= link_to attachment_image_tag( room, :image, fallback: "no_image_logo.png", size: '240x140'), room_path(room), data: {"turbolinks"=>false} %></td>
+   <%
+=begin%>
+ <td><%= link_to attachment_image_tag( room, :image, fallback: "no_image_logo.png", size: '240x140'), room_path(room), data: {"turbolinks"=>false} %></td> 
+<%
+=end%>
    <td><%= link_to room.name, room_path(room), data: {"turbolinks"=>false} %></td> 
-   <td><%= room.profile %></td>
+   <td><%= room.introduce %></td>
    <td>￥<%= room.price %></td>
    <td><%= room.created_at.to_s(:datetime_jp) %></td>
    <td><%= link_to '更新する', edit_room_path(room), class: 'btn btn-success', data: {"turbolinks"=>false} %></td>

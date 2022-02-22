@@ -1,0 +1,25 @@
+
+<div class="container">
+ <div class="row">
+  <div class="col-8">
+ 
+<%
+=begin%>
+ <%= attachment_image_tag @room, :image, fallback: "no_image_logo.png", size: '620x420' %> 
+<%
+=end%>
+</br>
+<%= image_tag 'room01.jpeg', size: '80x80', class: "icon" %>
+<%= @room.id %>
+<%= @room.user_id %>
+<%= @room.name %>
+<%= @room.introduce %>
+<%= @room.address %>
+ </div>
+ <div class="col-4">
+  <h3>￥<%= @room.price %> /日</h3>
+  <%= render "reservations/new" %>
+ </div>
+ 
+ </div>
+</div>
