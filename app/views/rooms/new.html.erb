@@ -1,3 +1,6 @@
+<div class="col-lg-10 room-view">
+<div class="room-view-box">
+               
 <div class="update-content">
   <div class="row">
     <h5>ルーム情報登録</h5>
@@ -13,32 +16,40 @@
     <% end %>
    <% end %>
 
-      <table>
-        <tr>
-          <th><%= f.label :name ,"ルーム名" %></th>
-          <td><%= f.text_field :room %></td>
-        </tr>
+  <div class="update-content">
+    <div class="row">
+      <%= f.label :name ,"ルーム名" %>
+      <%= f.text_field :name , :placeholder => "ルーム名を入力", class: 'form-control'%>
+    </div>
+  </div>
  
-        <tr>
-          <th><%= f.label :introduce ,"ルーム紹介" %></th>
-          <td><%= f.text_field :introduce %></td>
-        </tr>
+  <div class="update-content">
+    <div class="row">
+     <%= f.label :introduce ,"ルーム紹介" %>
+     <%= f.text_field :introduce , :placeholder => "ルーム説明を入力", class: 'form-control' %>
+    </div>
+  </div>
  
-        <tr>
-          <th><%= f.label :price ,"料金" %></th>
-          <td><%= f.text_field :price %></td>
-        </tr>
- 
-        <tr>
-          <th><%= f.label :address ,"住所" %></th>
-          <td><%= f.text_field :address %>
-        </tr>
+  <div class="update-content">
+    <div class="row">
+     <%= f.label :price ,"料金" %>
+     <%= f.text_field :price , :placeholder => "一日辺りの料金を入力", class: 'form-control'%>
+    </div>
+  </div>
 
-        <tr>
-          <th><%= f.label :image ,"ルーム画像" %></th>
-          <td><%= f.file_field :image %></td>
-        </tr>
-      </table>
+  <div class="update-content">
+    <div class="row">
+      <%= f.label :address ,"住所" %>
+      <%= f.text_field :address , :placeholder => "住所を入力", class: 'form-control'%>
+    </div>
+  </div>
+  
+  <div class="update-content">
+    <div class="row">
+      <%= f.label :image ,"ルーム画像" %>
+      <%= f.file_field :image %>
+    </div>
+  </div>
 
       <div>
         <div class="form-group">   
@@ -46,3 +57,6 @@
         </div>
       </div>
   <% end %>
+
+  </div>
+  </div>
