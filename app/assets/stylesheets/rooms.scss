@@ -19,3 +19,31 @@
     border: 1px solid #eaedef;
     margin: 50px auto;
 }
+
+.reservations {
+    padding: 30px 60px;
+}
+
+.room-posts {
+    max-width: 100vw;
+    padding: 30px 60px;
+}
+
+thead {
+    display: table-header-group;
+    vertical-align: middle;
+    border-color: inherit;
+}
+table {
+    border-collapse: collapse;
+    display: table;
+    text-indent: initial;
+    border-spacing: 2px;
+    border-color: grey;
+}
+
+tr {
+    display: table-row;
+    vertical-align: inherit;
+    border-color: inherit;
+}
