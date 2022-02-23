@@ -7,6 +7,19 @@ class RoomsController < ApplicationController
       def new
         @room = Room.new
       end
+
+      def search
+        @keyword = params[:keyword]
+        @area = params[:area]
+        if params[:keyword] != nil
+        @rooms = Room.search(params[:keyword]).page(params[:page]).per(8)
+        elsif params[:area] != nil
+        @rooms = Room.search(params[:area]).page(params[:page]).per(8)
+        else
+        @rooms = Room.all.order(updated_at: 'ASC').page(params[:page]).per(8)
+        end
+        render "index"
+      end
       
       def edit
         @room = Room.find(params[:id])

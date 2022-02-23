@@ -5,6 +5,18 @@
       <span class="navbar-toggler-icon"></span>
     </button>
 
+    <div class="header-sharch d-lg-inline-block d-none">
+      <%= form_with url: rooms_search_path, method: :get, local: true do |f| %>
+      <%= f.text_field :area, value: @area, :placeholder => "エリア", size:'20x10' %>
+      <% end %>     
+    </div>
+
+    <div class="header-sharch d-lg-inline-block d-none">
+      <%= form_with url: rooms_search_path, method: :get, local: true do |f| %>
+      <%= f.text_field :keyword, value: @keyword, :placeholder => "キーワード", size:'20x10' %>
+      <% end %>
+    </div>
+
     <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
       <ul class="navbar-nav">
         <% if user_signed_in? %> 
