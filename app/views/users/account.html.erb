@@ -1,29 +1,32 @@
-<div class="container">
-<div class="row">
+
+<div class="user-view-box">
   <div class="col-3">
    <div class="sharedarea">
       <%= render "users/shared/sidemenu" %>
    </div>
   </div>
-
-<div class="account">
- <div class="aaaa">
-  <h3>アカウント</h3>
-   <table class="acounttable">
-    <tbody>
-     <tr>
-      <th>メールアドレス</th>
-      <td><%= @user.email %></td>
-     </tr>
-     <tr>
-      <th>パスワード</th>
-      <td>*********</td>
-     </tr>
-    </tbody>
-   </table>
-  <%= link_to '編集する', edit_user_registration_path, class: 'btn btn-primary', data: {"turbolinks"=>false} %>
- </div>
- </div>
- 
+<div class="col-md-10 user-view">
+<div class="update-content">
+  <div class="row">
+    <h5>アカウント</h5>
+  </div>
+</div>
+<div class="update-content">
+  <div class="row">
+    <label class="col-md-3" for="email">メールアドレス</label>
+      <div class="col-md-9"><%= @user.email %></div>
+  </div>
+</div>
+<div class="update-content">
+  <div class="row">
+    <label class="col-md-3" for="password">パスワード</label>
+      <div class="col-md-9">*********</div>
+  </div>
+</div>
+<div class="update-content">
+  <div class="row">
+    <%= link_to '編集する', edit_user_registration_path, class: 'btn btn-primary', data: {"turbolinks"=>false} %>
+  </div>
+</div>
 </div>
 </div>
