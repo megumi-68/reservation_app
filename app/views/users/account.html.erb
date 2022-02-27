@@ -1,32 +1,32 @@
-
-<div class="user-view-box">
+<div class="row">
   <div class="col-3">
-   <div class="sharedarea">
-      <%= render "users/shared/sidemenu" %>
-   </div>
+    <%= render "users/shared/sidemenu" %>
   </div>
-<div class="col-md-10 user-view">
-<div class="update-content">
-  <div class="row">
-    <h5>アカウント</h5>
-  </div>
+  
+<div class="col-lg-9 user view">
+<div class="user-view-box">
+ <div class="in">
+  <h3>アカウント</h3>
+
+  <div class="update-content">
+   <div class="row">
+   <label>メールアドレス:</label>
+      <div><%= @user.email %></div>
+     </div>
+     </div>
+  <div class="update-content">
+   <div class="row">
+    <label>パスワード:</label>
+      <div>*********</div>
+     </div>
+    </div>
+    <div class="update-content">
+     <div class="row">
+      <div><%= link_to '編集する', edit_user_registration_path, class: 'btn btn-primary', data: {"turbolinks"=>false} %></div>
+     </div>
+    </div>
+ 
 </div>
-<div class="update-content">
-  <div class="row">
-    <label class="col-md-3" for="email">メールアドレス</label>
-      <div class="col-md-9"><%= @user.email %></div>
-  </div>
-</div>
-<div class="update-content">
-  <div class="row">
-    <label class="col-md-3" for="password">パスワード</label>
-      <div class="col-md-9">*********</div>
-  </div>
-</div>
-<div class="update-content">
-  <div class="row">
-    <%= link_to '編集する', edit_user_registration_path, class: 'btn btn-primary', data: {"turbolinks"=>false} %>
-  </div>
 </div>
 </div>
 </div>

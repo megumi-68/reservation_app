@@ -3,11 +3,7 @@
   <table class="post-table">
    <thead>
     <tr align="center">
-   <%
-=begin%>
- <th>ルーム画像</th> 
-<% 表示確認のため一時的にコメントアウト
-=end%>
+     <th>ルーム画像</th> 
      <th>ルーム名</th>
      <th>ルーム紹介</th>
      <th>料金</th>
@@ -18,11 +14,7 @@
   <% @rooms.each do |room| %>
   <tbody>
   <tr>
-   <%
-=begin%>
- <td><%= link_to attachment_image_tag( room, :image, fallback: "no_image_logo.png", size: '240x140'), room_path(room), data: {"turbolinks"=>false} %></td> 
-<%
-=end%>
+   <td><%= link_to image_tag room.roomimage_id.url %></td> 
    <td><%= link_to room.name, room_path(room), data: {"turbolinks"=>false} %></td> 
    <td><%= room.introduce %></td>
    <td>￥<%= room.price %></td>

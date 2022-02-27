@@ -1,3 +1,71 @@
 // Place all the styles related to the users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+.device {
+    padding-top: 36px;
+    font-size: 16px;
+}
+
+.device_frame {
+    max-width: 600px;
+    text-align: center;
+    padding: 24px;
+    margin: 0px auto;
+    background-color: white;
+    border-radius: 4px;
+    box-shadow: rgb;
+}
+
+.field {
+    margin-bottom: 10px;
+}
+
+.subtable {
+    text-align: center;
+    width: 50%;
+    .logo {
+     background-color: #ff0000a8;
+     border-radius: 5px;
+     color: #fff;
+     width: 40px;
+     }
+    .btn {
+     width: 300px;
+     }
+   }
+   
+   table.subtable td:nth-child(1) {
+    text-align: center;
+    width: 30px;
+   }
+   
+   table.subtable td:nth-child(2) {
+    text-align: center;
+    width: 300px;
+   }
+   
+   .subtable tr{
+    height: 50px;
+   }
+
+.sidebar {
+    font-size: 18px;
+    text-align: center;
+    padding: 30px 0;
+    .account {
+     color: black;
+     border-right: 3px solid rgb(0, 238, 255);
+    }
+   
+    .profile {
+     color: black;
+     border-right: 3px solid rgb(0, 238, 255);
+    }
+}
+
+.user-view-box {
+    max-width: 880px;
+    background-color: #fff;
+    border: 1px solid #eaedef;
+    margin: 30px auto;
+}

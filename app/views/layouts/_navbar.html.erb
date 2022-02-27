@@ -21,7 +21,18 @@
       <ul class="navbar-nav">
         <% if user_signed_in? %> 
         <li class="nav-item dropdown">
-        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Logged in as <%= current_user.name %></a>
+        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
+        <% if current_user.profileimage? %>
+          <%= image_tag @user.profileimage.url, :alt => 'ユーザー画像' %>
+         <% else %>
+          <%= image_tag "default_icon.jpg", :alt => 'デフォルト画像',:size => '50x50' %>
+         <% end %>
+         </a>  
+        <%
+=begin%>
+ <%= image_tag current_user, :profileimage_id, fallback: "default_icon.jpg", size: '60x60', class: "aicon" %></a> 
+<%
+=end%>
         <ul class="dropdown-menu dropdown-menu-right">
         <li class="dropdown-item"><%= link_to 'ルーム登録', new_room_path, class: 'link', data: {"turbolinks"=>false} %></li>
         <li class="dropdown-divider"></li>      
@@ -29,7 +40,7 @@
         <li class="dropdown-divider"></li> 
         <li class="dropdown-item"><%= link_to '登録済みルーム一覧', posts_path, class: 'link', data: {"turbolinks"=>false} %></li>
         <li class="dropdown-divider"></li> 
-        <li class="dropdown-item"><%= link_to '設定', account_path(current_user), class: 'link', data: {"turbolinks"=>false} %></li>
+        <li class="dropdown-item"><%= link_to '設定', account_path, class: 'link', data: {"turbolinks"=>false} %></li>
         <li class="dropdown-divider"></li> 
         <li class="dropdown-item"><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'link' %></li>
         <% else %>

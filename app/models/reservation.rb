@@ -4,6 +4,7 @@ class Reservation < ApplicationRecord
 
   validates :start_day, presence: true
   validates :end_day, presence: true
+  validates :num_people, presence: true, numericality: { less_than_or_equal_to: 20, greater_than_or_equal_to: 1 }
 
   validate :start_end_check
   validate :date_before_start

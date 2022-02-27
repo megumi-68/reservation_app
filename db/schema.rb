@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_02_21_051633) do
+ActiveRecord::Schema.define(version: 2022_02_27_093910) do
 
   create_table "reservations", force: :cascade do |t|
     t.date "start_day"
@@ -33,9 +33,9 @@ ActiveRecord::Schema.define(version: 2022_02_21_051633) do
     t.text "introduce"
     t.integer "price"
     t.text "address"
-    t.string "image"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "roomimage_id"
     t.index ["user_id"], name: "index_rooms_on_user_id"
   end
 
@@ -47,9 +47,9 @@ ActiveRecord::Schema.define(version: 2022_02_21_051633) do
     t.datetime "remember_created_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "image"
     t.string "name"
     t.text "introduce"
+    t.string "profileimage"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
