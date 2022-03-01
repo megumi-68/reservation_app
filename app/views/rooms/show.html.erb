@@ -2,23 +2,22 @@
 <div class="container room-show">
  <div class="row">
   <div class="col-md-8">
+    <%= image_tag @room.roomimage_id.url, class: 'room_image' ,:size => '600x400' %>
    <div class="room-show-detile">
-    <%= image_tag @room.roomimage_id.url, class: 'room_image' ,:size => '450x400' %>
-   </div>
-   <div class="room-show-detile">
-    <%= @room.id %>
+  
     <%= @room.user_id %>
-    <%= @room.name %>
-    <p class="room-show-detile-content"><%= @room.introduce %></p>
-    <%= @room.address %>
+    <div class="room-show-profile">
+      <p class="room-show-profile-name"><%= @room.name %></p>
+      <p class="room-show-profile-address"><%= @room.address %></p>
+    </div>
    </div>
+    <p class="room-show-detile-content"><%= @room.introduce %></p>
   </div>
   
- <div class="col-4">
+  <div class="col-4">
    <h3>￥<%= @room.price %> /日</h3>
    <%= render "reservations/new" %>
+  </div>
+ 
  </div>
- 
- 
-</div>
 </div>

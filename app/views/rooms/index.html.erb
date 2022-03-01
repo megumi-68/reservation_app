@@ -30,7 +30,7 @@
         <td><%= image_tag room.roomimage_id.url, class: 'room_image' ,:size => '250x200'  %></td>
         <td><%= link_to room.name , room_path(room) %></td>
         <td><%= room.introduce %></td>
-        <td><%= room.price %></td>
+        <td>¥<%= room.price %></td>
         <td><%= room.updated_at.to_s(:datetime_jp) %></td>
       </tr>
     <% end %>
