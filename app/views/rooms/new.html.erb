@@ -17,28 +17,28 @@
    <% end %>
   <div class="update-content">
     <div class="row">
-      <%= f.label :name ,"ルーム名" %>
+      <%= f.label :name ,"ルーム名" %><div class="logo">必須</div> 
       <%= f.text_field :name , :placeholder => "ルーム名を入力", class: 'form-control'%>
     </div>
   </div>
  
   <div class="update-content">
     <div class="row">
-     <%= f.label :introduce ,"ルーム紹介" %>
+     <%= f.label :introduce ,"ルーム紹介" %><div class="logo">必須</div> 
      <%= f.text_field :introduce , :placeholder => "ルーム説明を入力", class: 'form-control' %>
     </div>
   </div>
  
   <div class="update-content">
     <div class="row">
-     <%= f.label :price ,"料金" %>
+     <%= f.label :price ,"料金" %><div class="logo">必須</div> 
      <%= f.text_field :price , :placeholder => "一日辺りの料金を入力", class: 'form-control'%>
     </div>
   </div>
 
   <div class="update-content">
     <div class="row">
-      <%= f.label :address ,"住所" %>
+      <%= f.label :address ,"住所" %><div class="logo">必須</div> 
       <%= f.text_field :address , :placeholder => "住所を入力", class: 'form-control'%>
     </div>
   </div>

@@ -1,10 +1,18 @@
-<h2>登録済みルーム一覧</h2>
+<h2>ルーム一覧</h2>
  
-<% if flash[:notice] %>
-<p class="notice"><%= flash[:notice] %></p>
-<% end %>
+<div class ="count">
+  <% if @keyword != nil && @keyword != "" %>
+  キーワード検索結果:<%= Room.search(params[:keyword]).ids.count %>件
+  <% elsif @area != nil && @area != "" %>
+  エリア検索結果:<%= Room.search(params[:area]).ids.count %>件
+  <% elsif @keyword == "" || @area == "" %>
+  全検索結果:<%= Room.all.ids.count %>件
+  <% else%>
+  該当するルームがありませんでした。
+  <% end %>
+ </div>
 
-<table>
+<table class="posttable">
   <thead>
     <tr>
       <th>ルーム画像</th>
@@ -17,9 +25,10 @@
 
   <tbody>
     <% @rooms.each do |room| %>
+   
       <tr>
-        <td><%= room.image %></td>
-        <td><%= room.name %></td>
+        <td><%= image_tag room.roomimage_id.url, class: 'room_image' ,:size => '250x200'  %></td>
+        <td><%= link_to room.name , room_path(room) %></td>
         <td><%= room.introduce %></td>
         <td><%= room.price %></td>
         <td><%= room.updated_at.to_s(:datetime_jp) %></td>

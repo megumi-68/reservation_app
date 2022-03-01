@@ -34,27 +34,20 @@
     <div class="update-content">
       <div class="row">
         <%= f.label :アイコン画像 %>
-         <%= check_box_tag :image_delete %>画像なし
-         
- <%
-=begin%>
- <%= form.file_field :pro %> 
-<%
-=end%>
-
+        <%= f.file_field :profileimage %>
       </div>
     </div>
 
     <div class="update-content">
-      <div class="row">
-        <%= f.label :名前 %><div class="require">必須</div>
+      <div class="row"> 
+        <%= f.label :名前 %> <div class="logo">必須</div> 
         <%= f.text_field :name, autofocus: true, required: true, class: 'form-control', maxlength: "40", size: "40" %>
       </div>
     </div>
 
     <div class="update-content">
       <div class="row">
-        <%= f.label :自己紹介 %><div class="require">必須</div>
+        <%= f.label :自己紹介 %><div class="logo">必須</div>
         <%= f.text_area :introduce, autofocus: true, class: 'form-control', size: '40x5' %>
       </div>
     </div>

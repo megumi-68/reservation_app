@@ -28,11 +28,6 @@
           <%= image_tag "default_icon.jpg", :alt => 'デフォルト画像',:size => '50x50' %>
          <% end %>
          </a>  
-        <%
-=begin%>
- <%= image_tag current_user, :profileimage_id, fallback: "default_icon.jpg", size: '60x60', class: "aicon" %></a> 
-<%
-=end%>
         <ul class="dropdown-menu dropdown-menu-right">
         <li class="dropdown-item"><%= link_to 'ルーム登録', new_room_path, class: 'link', data: {"turbolinks"=>false} %></li>
         <li class="dropdown-divider"></li>      

@@ -1,25 +1,24 @@
 
-<div class="container">
+<div class="container room-show">
  <div class="row">
-  <div class="col-8">
- 
-<%
-=begin%>
- <%= attachment_image_tag @room, :image, fallback: "no_image_logo.png", size: '620x420' %> 
-<%
-=end%>
-</br>
-<%= image_tag 'room01.jpeg', size: '80x80', class: "icon" %>
-<%= @room.id %>
-<%= @room.user_id %>
-<%= @room.name %>
-<%= @room.introduce %>
-<%= @room.address %>
- </div>
+  <div class="col-md-8">
+   <div class="room-show-detile">
+    <%= image_tag @room.roomimage_id.url, class: 'room_image' ,:size => '450x400' %>
+   </div>
+   <div class="room-show-detile">
+    <%= @room.id %>
+    <%= @room.user_id %>
+    <%= @room.name %>
+    <p class="room-show-detile-content"><%= @room.introduce %></p>
+    <%= @room.address %>
+   </div>
+  </div>
+  
  <div class="col-4">
-  <h3>￥<%= @room.price %> /日</h3>
-  <%= render "reservations/new" %>
+   <h3>￥<%= @room.price %> /日</h3>
+   <%= render "reservations/new" %>
  </div>
  
- </div>
+ 
+</div>
 </div>

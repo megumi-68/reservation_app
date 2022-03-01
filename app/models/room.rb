@@ -8,7 +8,7 @@ class Room < ApplicationRecord
   validates :address, presence: true
   validates :price, presence: true, numericality: { less_than_or_equal_to: 1000000, 
                                   greater_than_or_equal_to: 100 }
-  validates :image, presence: true
+  validates :roomimage_id, presence: true
 
   # attachment :roomimage
 

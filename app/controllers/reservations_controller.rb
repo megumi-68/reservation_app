@@ -10,17 +10,24 @@ class ReservationsController < ApplicationController
        
        def confirm
          @reservation = Reservation.new(reservation_params)
+          if @reservation.valid? 
+            @reservation.total_price = (@reservation.end_day - @reservation.start_day).to_int * @reservation.num_people * @reservation.price
+            render "confirm"
+          else
+            @room = Room.find(@reservation.room_id)
+            render 'rooms/show'
+          end
        end
        
        def create
          @reservation = Reservation.new(reservation_params)
          @reservation.use_day = @reservation.end_day - @reservation.start_day
-         if @reservation.save
-           flash[:notice] = "予約が完了しました"
-           redirect_to reservation_path(@reservation)
-         else
-           redirect_to root_path
-         end
+          if @reservation.save
+            flash[:notice] = "予約新規登録しました"
+            redirect_to reservation_path(@reservation)
+          else
+            redirect_to root_path
+          end
        end
        
        def show
