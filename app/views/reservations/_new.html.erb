@@ -1,8 +1,8 @@
+ <%= form_with model: @reservation, url: confirm_path, method: :post, local:true do |f| %>
  <%= render "layouts/error", obj: @reservation %>
   
   <table class="acounttable">
-   <tbody>
-    <%= form_with model: @reservation, url: confirm_path, method: :post, local: true do |f| %>
+   <tbody>   
     <tr>
      <td><%= f.label :start_day ,"開始日" %>
          <%= f.date_field :start_day, autofocus: true, class: 'form-control' %>
@@ -22,8 +22,8 @@
      </td>
     </tr>
     <tr>
-     <td><%= f.submit "予約へ進む", class: 'btn btn-primary', data: {"turbolinks"=>false} %></td>
-    </tr>
-    <% end %>
+     <td><%= f.submit "予約へ進む", class:'btn btn-primary', data: {"turbolinks"=>false} %></td>
+    </tr>  
    </tbody>
-  </table>
+</table>
+<% end %>
