@@ -18,7 +18,7 @@
   <%= paginate @reservations %>
   <% @reservations.each do |reservation| %>
   <tr>
-   <td><%= link_to image_tag reservation.room.roomimage_id.url, :alt => '部屋画像' %></td>
+   <td><%= link_to image_tag reservation.room.roomimage_id.url, :alt => '部屋画像' ,:size => '300x200'%></td>
    <td><%= link_to reservation.room.name, room_path(reservation.room_id), data: {"turbolinks"=>false} %></td>
    <td><%= reservation.room.introduce %></td>
    <td>￥<%= reservation.total_price %></td>

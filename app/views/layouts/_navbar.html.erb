@@ -23,7 +23,7 @@
         <li class="nav-item dropdown">
         <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
         <% if current_user.profileimage? %>
-          <%= image_tag @user.profileimage.url, :alt => 'ユーザー画像' %>
+          <%= image_tag current_user.profileimage.url, :alt => 'ユーザー画像' ,:size => '50x50' %>
          <% else %>
           <%= image_tag "default_icon.jpg", :alt => 'デフォルト画像',:size => '50x50' %>
          <% end %>
