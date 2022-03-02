@@ -1,0 +1,61 @@
+<div class="col-lg-10 room-view">
+<div class="room-view-box">
+               
+<div class="update-content">
+  <div class="row">
+    <h5>ルーム情報登録</h5>
+  </div>
+</div>
+
+  <%= form_with model: @room, local: true do |f| %>
+   <% if @room.errors.any? %>
+    <% @room.errors.full_messages.each do |message| %>
+     <ul>
+      <li><%= message %></li>
+     </ul>
+    <% end %>
+   <% end %>
+  <div class="update-content">
+    <div class="row">
+      <%= f.label :name ,"ルーム名" %><div class="logo">必須</div> 
+      <%= f.text_field :name , :placeholder => "ルーム名を入力", class: 'form-control'%>
+    </div>
+  </div>
+ 
+  <div class="update-content">
+    <div class="row">
+     <%= f.label :introduce ,"ルーム紹介" %><div class="logo">必須</div> 
+     <%= f.text_field :introduce , :placeholder => "ルーム説明を入力", class: 'form-control' %>
+    </div>
+  </div>
+ 
+  <div class="update-content">
+    <div class="row">
+     <%= f.label :price ,"料金" %><div class="logo">必須</div> 
+     <%= f.text_field :price , :placeholder => "一日辺りの料金を入力", class: 'form-control'%>
+    </div>
+  </div>
+
+  <div class="update-content">
+    <div class="row">
+      <%= f.label :address ,"住所" %><div class="logo">必須</div> 
+      <%= f.text_field :address , :placeholder => "住所を入力", class: 'form-control'%>
+    </div>
+  </div>
+  
+  <div class="update-content">
+    <div class="row">
+      <%= f.label :image ,"ルーム画像" %>
+      <%= f.file_field :roomimage_id %>
+    </div>
+  </div>
+
+      <div>
+        <div class="form-group">   
+          <%= f.submit "登録", class: 'btn btn-primary' %>
+        </div>
+      </div>
+  <% end %>
+
+  </div>
+  </div>

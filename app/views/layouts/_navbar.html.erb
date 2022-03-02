@@ -1,0 +1,47 @@
+<header class="mb-4">
+  <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+    <a class="navbar-brand" href="/"><%= image_tag 'logo.png', alt: 'サイトロゴ' %></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="header-sharch d-lg-inline-block d-none">
+      <%= form_with url: rooms_search_path, method: :get, local: true do |f| %>
+      <%= f.text_field :area, value: @area, :placeholder => "エリア", size:'20x10' %>
+      <% end %>     
+    </div>
+
+    <div class="header-sharch d-lg-inline-block d-none">
+      <%= form_with url: rooms_search_path, method: :get, local: true do |f| %>
+      <%= f.text_field :keyword, value: @keyword, :placeholder => "キーワード", size:'20x10' %>
+      <% end %>
+    </div>
+
+    <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+      <ul class="navbar-nav">
+        <% if user_signed_in? %> 
+        <li class="nav-item dropdown">
+        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
+        <% if current_user.profileimage? %>
+          <%= image_tag current_user.profileimage.url, :alt => 'ユーザー画像' ,:size => '50x50' %>
+         <% else %>
+          <%= image_tag "default_icon.jpg", :alt => 'デフォルト画像',:size => '50x50' %>
+         <% end %>
+         </a>  
+        <ul class="dropdown-menu dropdown-menu-right">
+        <li class="dropdown-item"><%= link_to 'ルーム登録', new_room_path, class: 'link', data: {"turbolinks"=>false} %></li>
+        <li class="dropdown-divider"></li>      
+        <li class="dropdown-item"><%= link_to '予約済みルーム一覧', reservations_path, class: 'link', data: {"turbolinks"=>false} %></li>
+        <li class="dropdown-divider"></li> 
+        <li class="dropdown-item"><%= link_to '登録済みルーム一覧', posts_path, class: 'link', data: {"turbolinks"=>false} %></li>
+        <li class="dropdown-divider"></li> 
+        <li class="dropdown-item"><%= link_to '設定', account_path, class: 'link', data: {"turbolinks"=>false} %></li>
+        <li class="dropdown-divider"></li> 
+        <li class="dropdown-item"><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'link' %></li>
+        <% else %>
+        <li class="nav-item"><%= link_to '登録する', new_user_registration_path, class: 'nav-link' %></li>
+        <li class="nav-item"><%= link_to 'ログイン', user_session_path, class: 'nav-link' %></li>
+        <% end %>
+      </ul>
+    </div>
+  </nav>

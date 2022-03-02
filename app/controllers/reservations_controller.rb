@@ -1,0 +1,47 @@
+class ReservationsController < ApplicationController
+
+    def index
+        @reservations = Reservation.all.order(updated_at: 'ASC').page(params[:page]).per(4)
+       end
+       
+       def new
+         @reservation = Reservation.new
+       end
+       
+       def confirm
+         @reservation = Reservation.new(reservation_params)
+          if @reservation.valid? 
+            @reservation.total_price = (@reservation.end_day - @reservation.start_day).to_int * @reservation.num_people * @reservation.price
+            render "confirm"
+          else
+            @room = Room.find(@reservation.room_id)
+            render 'rooms/show'
+          end
+       end
+       
+       def create
+         @reservation = Reservation.new(reservation_params)
+         @reservation.use_day = @reservation.end_day - @reservation.start_day
+          if @reservation.save
+            flash[:notice] = "予約新規登録しました"
+            redirect_to reservation_path(@reservation)
+          else
+            redirect_to root_path
+          end
+       end
+       
+       def show
+         @reservation = Reservation.find(params[:id])
+       end
+       
+       def destroy
+         reservation = Reservation.find(params[:id])
+         reservation.user_id = current_user.id
+         reservation.destroy
+         redirect_back(fallback_location: root_path)
+       end
+       # binding.pry
+       def reservation_params
+         params.require(:reservation).permit(:start_day, :end_day, :num_people, :room_id, :user_id, :price, :total_price, :use_day)
+       end
+end

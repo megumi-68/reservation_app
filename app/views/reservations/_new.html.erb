@@ -1,0 +1,29 @@
+ <%= form_with model: @reservation, url: confirm_path, method: :post, local:true do |f| %>
+ <%= render "layouts/error", obj: @reservation %>
+  
+  <table class="acounttable">
+   <tbody>   
+    <tr>
+     <td><%= f.label :start_day ,"開始日" %>
+         <%= f.date_field :start_day, autofocus: true, class: 'form-control' %>
+      </td>
+    </tr>
+    <tr>
+     <td><%= f.label :end_day ,"終了日" %>
+         <%= f.date_field :end_day, class: 'form-control' %>
+     </td>
+    </tr>
+    <%= f.hidden_field :user_id, :value => current_user.id %>
+    <%= f.hidden_field :room_id, :value => @room.id %>
+    <%= f.hidden_field :price, :value => @room.price %>
+    <tr>
+     <td><%= f.label :使用人数 %>
+         <%= f.number_field :num_people, class: 'form-control' %>
+     </td>
+    </tr>
+    <tr>
+     <td><%= f.submit "予約へ進む", class:'btn btn-primary', data: {"turbolinks"=>false} %></td>
+    </tr>  
+   </tbody>
+</table>
+<% end %>

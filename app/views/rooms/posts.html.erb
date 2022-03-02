@@ -1,0 +1,31 @@
+<div class="container-fiuld room-posts">
+  <h4 class="pb-4">登録済みルーム一覧</h4>
+  <table class="posttable">
+   <thead>
+    <tr align="center">
+     <th>ルーム画像</th> 
+     <th>ルーム名</th>
+     <th>ルーム紹介</th>
+     <th>料金</th>
+     <th>作成日</th>
+    </tr>
+   </thead> 
+  <%= paginate @rooms %>
+  <% @rooms.each do |room| %>
+  <tbody>
+   <tr>
+     <% if room.roomimage_id? %>
+   <td><%= link_to image_tag room.roomimage_id.url, :alt => '部屋画像' %></td>
+     <% else %>
+   <td> <%= image_tag "room01.jpeg", :alt => 'デフォルト画像',:size => '250x200' %></td>
+     <% end %>
+   <td><%= link_to room.name, room_path(room), data: {"turbolinks"=>false} %></td> 
+   <td><%= room.introduce %></td>
+   <td>￥<%= room.price %></td>
+   <td><%= room.created_at.to_s(:datetime_jp) %></td>
+   <td><%= link_to '削除する', room_path(room), method: :delete, class: 'btn btn-danger', data: { confirm: "本当に削除しますか？" } %></td>
+   </tr>
+   </tbody>
+   <% end %>
+ </table>
+ </div>

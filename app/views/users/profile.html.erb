@@ -1,0 +1,63 @@
+<div class="row">
+  <div class="col-3">
+      <%= render "users/shared/sidemenu" %>
+  </div>
+  
+  <form class="edit_user" id="edit_user_1236" enctype="multipart/form-data" action="/users/profile" accept-charset="UTF-8" method="post">
+
+  <input type="hidden" name="_method" value="patch">
+  <input type="hidden" name="authenticity_token" value="eMa7luxFqXNH44PFMLOjytqKuKeowihKd0jR5Z4hCo5dJxH/gQbWr5l3SFR7h1qv0frAnn/RJkjBSdOt1lZMgw==">
+                    
+<div class="col-lg-9 user view">
+ <div class="user-view-box">
+  <div class="update-content">
+   <div class="row">
+    <h5>プロフィール</h5>
+   </div>
+  </div>
+
+  <div class="update-content">
+   <div class="row">
+    <div class="col-md-6 offset-md-3">
+      <div class="icon-box">
+        <% if current_user.profileimage? %>
+          <%= image_tag @user.profileimage.url, :alt => 'ユーザー画像' %>
+         <% else %>
+          <%= image_tag "default_icon.jpg", :alt => 'デフォルト画像',:size => '100x100' %>
+         <% end %>
+      </div>
+    </div>
+   </div>
+  </div>
+<%= form_with model:@user, url: user_path(@user), local: true do |f| %>
+    <div class="update-content">
+      <div class="row">
+        <%= f.label :アイコン画像 %>
+        <%= f.file_field :profileimage %>
+      </div>
+    </div>
+
+    <div class="update-content">
+      <div class="row"> 
+        <%= f.label :名前 %> <div class="logo">必須</div> 
+        <%= f.text_field :name, autofocus: true, required: true, class: 'form-control', maxlength: "40", size: "40" %>
+      </div>
+    </div>
+
+    <div class="update-content">
+      <div class="row">
+        <%= f.label :自己紹介 %><div class="logo">必須</div>
+        <%= f.text_area :introduce, autofocus: true, class: 'form-control', size: '40x5' %>
+      </div>
+    </div>
+
+    <div class="update-content">
+      <div class="row">
+        <%= f.submit "更新する", class: 'btn btn-primary' %>
+      </div>
+    </div>
+<% end %>
+ </div>
+</div>
+</div>
+
